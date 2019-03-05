@@ -1,0 +1,220 @@
+ <!-- main navigation -->
+        <nav id="topnav" role="navigation">
+	
+
+    
+	  
+          <ul class="srt-menu" id="menu-main-navigation">
+	    
+	
+              <li class=""><a href="index.php"><div class="fa fa-home fa-2x"></div></a></li>
+              <li><a href="#">Automobile</a>
+                  <ul>
+                      <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='1'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#">Phones & Tablets</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='2'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+                  </ul>
+              </li>
+	      
+              <li>
+                 
+                  <a href="#">Electronics</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='3'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+                  </ul> </li>
+		  
+		  
+	       <li>
+                  <a href="#">Services</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='4'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+                  </ul>
+              </li>
+	       
+	       <li>
+                 
+                  <a href="#">Art & Sport</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='5'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+                  </ul> </li>
+	       
+	       <li>
+                
+                  <a href="#">Fashion</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='6'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+                  </ul>  </li>
+		  
+		  	       <li>
+                
+                  <a href="#">Real Estate</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='7'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+                  </ul>  </li>
+		  
+		  	       <li>
+                
+                  <a href="#">Jobs</a>
+                  <ul>
+                        <?php
+        $check=mysqli_query($con,"SELECT * FROM  item_sub_cats WHERE cat_id='8'");
+          while($get=mysqli_fetch_assoc($check))
+          {
+            $name=$get['sub_category'];
+            
+	echo"<li><a href='menu.php?u=$name'>$name</a></li>";
+	//''echo "<option value=\"" . $ary['id']  . "\">" . $ary ['typ']  . "</option>";
+}
+?></li>
+		     </ul>
+		  
+		  <li class=><a href='request_show.php'>Requests</a></li>
+         
+	       
+<?php
+	if(isset($_SESSION['id'])){
+
+		$user_id = $_SESSION['id'];
+                //$user="";
+              
+                $user = $_SESSION['username'];
+		echo" <li class='Current'><a href='home.php'>$user's home</a></li>";
+                
+	}else{
+echo" <li class=''><a href='login.php'>Member Login</a></li>";
+	}
+		 
+		  ?>
+          </ul>     
+		</nav><!-- end main navigation -->
+  
+    </header><!-- end header -->
+ 
+        <div >
+          
+                  </div>
+        
+        </div><!-- end row -->
+       </div><!-- end wrapper -->
+    
+  </div>
+<!-- header area -->
+    <header class="wrapper clearfix">
+		       
+  
+	 <div class='grid_4'>
+	
+	 
+        </div>
+      
+	
+	
+        
+        <!-- main navigation -->
+<?php
+	
+
+if (isset ($user_id))
+    {
+    
+    $loggedin=TRUE;
+   
+    }
+    else $loggedin=FALSE;
+    echo"<html><head>
+     
+    <Title>$appname";
+    if($loggedin) echo " ->($user)";
+    
+    echo"</title></head>
+      
+       <body><font face='' size='2'>";
+        
+    if ($loggedin)
+        {
+             // header("Location: home.php");
+        //echo"<a href=\"home.php\"><input class=\"btn\" value=\"$user Home\" type=\"submit\"></a>";
+    }
+    else
+    {
+                 
+        //echo"<a href=\"login.php\"><input class=\"btn\" value=\"Sell+\" type=\"submit\"></a>";
+	 
+
+    }
+
+ob_flush();
+
+	      
+	      ?>
+                  
+          </ul>     
+		</nav><!-- end main navigation -->
+  
